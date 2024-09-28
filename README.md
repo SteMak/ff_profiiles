@@ -1,5 +1,9 @@
 # FF Profiles
 
+Fancy Firefox profile chooser
+
+This allows to open new links in any profile not only the default one
+
 Build
 
 ```
@@ -16,6 +20,9 @@ Setup
 
 ```
 sudo cp build/ff_profiles /usr/lib/
+sudo cp ff_profiles.desktop /usr/share/applications
 ```
 
-Put profile images to `~/.ff_profiles`
+Put profile images to `~/.ff_profiles` without file extentions and with same name as profile
+
+![Screenshot](screenshot.png)
