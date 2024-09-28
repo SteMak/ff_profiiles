@@ -1,3 +1,5 @@
+#define MAX_LINE_LENGTH 256
+
 typedef struct StringArray {
     int length;
     char** data;

@@ -4,8 +4,6 @@
 
 #include "types.h"
 
-#define MAX_LINE_LENGTH 256
-
 // The function looks for strings starting with `Name=` and
 // returns the array of corresponding values
 char** profile_profiles_internal(char* filename, int* count)
