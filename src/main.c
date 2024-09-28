@@ -28,9 +28,8 @@ activate(GtkApplication* app, gpointer profiles)
 
     {
         GtkCssProvider* css_provider = gtk_css_provider_new();
-        gtk_css_provider_load_from_string(
-            css_provider,
-            ".window { font-family: Futura; font-size: 16pt; background: linear-gradient(-60deg, #313236 0%, #40393e 100%); }");
+        gtk_css_provider_load_from_string(css_provider,
+            ".window { font-family: Futura; background: linear-gradient(-60deg, #313236 0%, #40393e 100%); }");
         gtk_style_context_add_provider_for_display(gtk_widget_get_display(window),
             (GtkStyleProvider*)css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
         gtk_widget_add_css_class(window, "window");
@@ -60,13 +59,15 @@ activate(GtkApplication* app, gpointer profiles)
         gtk_widget_set_size_request(button, 170, 200);
         gtk_widget_set_margin_start(button, 10);
         gtk_widget_set_margin_end(button, 10);
+
         {
             GtkCssProvider* css_provider = gtk_css_provider_new();
-            gtk_css_provider_load_from_string(css_provider, ".button { opacity: 0.756; color: #fff; }");
+            gtk_css_provider_load_from_string(css_provider, ".button { opacity: 0.756; color: #fff; font-size: 16pt; }");
             gtk_style_context_add_provider_for_display(gtk_widget_get_display(button),
                 (GtkStyleProvider*)css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
             gtk_widget_add_css_class(button, "button");
         }
+
         gtk_box_append(GTK_BOX(box), button);
 
         GtkWidget* inner_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
@@ -87,11 +88,13 @@ activate(GtkApplication* app, gpointer profiles)
         GtkWidget* image = gtk_image_new_from_file(filename);
         gtk_widget_set_overflow(image, true);
 
-        GtkCssProvider* css_provider = gtk_css_provider_new();
-        gtk_css_provider_load_from_string(css_provider, ".image { border-radius: 50%; }");
-        gtk_style_context_add_provider_for_display(gtk_widget_get_display(image),
-            (GtkStyleProvider*)css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
-        gtk_widget_add_css_class(image, "image");
+        {
+            GtkCssProvider* css_provider = gtk_css_provider_new();
+            gtk_css_provider_load_from_string(css_provider, ".image { border-radius: 50%; }");
+            gtk_style_context_add_provider_for_display(gtk_widget_get_display(image),
+                (GtkStyleProvider*)css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
+            gtk_widget_add_css_class(image, "image");
+        }
 
         gtk_box_append(GTK_BOX(inner_box), image);
         gtk_widget_set_margin_bottom(image, 5);
