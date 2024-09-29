@@ -36,6 +36,7 @@ activate(GtkApplication* app, gpointer profiles)
     }
 
     gtk_window_set_title(GTK_WINDOW(window), "FF Profiles");
+    // TODO: the appearence is adjusted only for 3 profiles
     gtk_window_set_default_size(GTK_WINDOW(window), 1000, 522);
 
     GtkWidget* box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
@@ -114,9 +115,8 @@ int main(int argc, char* argv[])
     if (argc >= 2) {
         paramsAll.url = argv[1];
     } else {
-        // TODO: get from config
         paramsAll.url = malloc(23 * sizeof(char));
-        strcpy(paramsAll.url, "https://www.google.com");
+        strcpy(paramsAll.url, "about:home");
     }
 
     GtkApplication* app;
